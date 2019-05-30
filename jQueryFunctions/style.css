@@ -1,0 +1,16 @@
+.button {
+    background-color: lightgrey;
+    vertical-align: middle;
+    padding: 100px;
+    margin-left: 50px;
+}
+
+div .actionBox {
+    display: inline-block;
+    margin-left: 150px;
+    padding: 30px;
+}
+
+.red {
+    background-color: red;
+}
