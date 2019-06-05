@@ -1,0 +1,22 @@
+body span {
+  color: red;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+
+img {
+  height: 300px;
+  display: block;
+}
+
+a:nth-of-type(1) {
+  color: red;
+}
+
+a:nth-of-type(2) {
+  color: green;
+}
