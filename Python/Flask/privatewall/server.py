@@ -37,7 +37,7 @@ def create():
         return redirect('/')
     mysql = connectToMySQL("login")
     query = "SELECT * FROM users WHERE email = %(email)s;"
-    data = { "username" : request.form["email"] }
+    data = { "email" : request.form["email"] }
     result = mysql.query_db(query, data)
     if result == request.form['email']:
         flash("Email address already used!", 'vemail')
