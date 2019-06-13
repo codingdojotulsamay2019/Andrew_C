@@ -57,7 +57,7 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
-                    <p>Password:</p> <p> <input type="text" name="password"></p>
+                    <p>Password:</p> <p> <input type="password" name="password"></p>
                     {% with messages = get_flashed_messages(category_filter=["vmatch"]) %}
                         {% if messages %}
                             {% for message in messages %}
@@ -65,7 +65,7 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
-                    <p>Confirm Password:</p> <p> <input type="text" name="cpassword"></p>
+                    <p>Confirm Password:</p> <p> <input type="password" name="cpassword"></p>
                     <input type="submit" value="Create">
                 </form>
             </div>
