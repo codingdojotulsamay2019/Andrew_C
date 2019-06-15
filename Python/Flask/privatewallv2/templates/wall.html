@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Personal Wall</title>
+        <meta name="User's Wall" content="Inane Garbage Mostly">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    </head>
+    <body>
+        <header>
+            <div class="left"><h1>Coding Dojo Wall</h1></div>
+            <div class="right"><h2>Welcome {{session['name']}}!</h2>
+            <a href="/logout">Log Out</a></div>
+        </header>
+
+
+        <main>
+            <div class="messagesbox">
+                <h3>Message(s) for You</h3>
+                {% for msg in messages %}
+                <div class="block">
+                    <div class="message">
+                        <p>{{msg['first_name']}} said: </p>
+                        <p>{{msg['message']}}</p>
+                    </div>
+                    <div class="trash">
+                        <a href="/messages/{{msg['id']}}/delete"><img src="{{ url_for('static', filename='trash.png') }}" alt="Pic of a trash can"></a>
+
+                    </div>
+                </div>
+
+                <br> <!-- You know you love those breaks! -->
+                <br>
+                {% endfor %}
+            </div>
+            <div class="sendit">
+                <h3>Send Messages</h3>
+                <table>
+                    <tbody id='msgblocks'>
+                        {% for user in users %}
+                            {% if user['id'] != session['userid'] %}
+                            <tr class="msgline">
+                                <form class="send" action="/messages/create" method="post">
+                                    <td><p>{{user['first_name']}}</p></td>
+                                    <td><textarea name="msg" class="msgbox" rows="8" ></textarea></td>
+                                    <td><input type="hidden" name="rid" value="{{user['id']}}">
+                                    <input type="submit" name="submit" class="msgboxsend" value="Send"></td>
+                                </form>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+    </body>
+</html>

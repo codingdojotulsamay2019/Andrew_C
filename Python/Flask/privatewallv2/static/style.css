@@ -1,0 +1,99 @@
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.registration,
+.login {
+    display: inline-block;
+    padding: 10px 10px;
+    vertical-align: top;
+}
+
+.login {
+    margin-left: 200px;
+}
+
+/* wall page */
+header div {
+    display: inline-block;
+    width: 45%;
+}
+
+header .left {
+    text-align: left;
+}
+
+header .right {
+    text-align: right;
+}
+
+header .right h2 {
+    display: inline-block;
+}
+
+header .right a {
+    margin-left: 15px;
+}
+
+.messagesbox,
+.sendit {
+    display: inline-block;
+    vertical-align: top;
+    overflow-y: auto;
+}
+
+.messagesbox {
+    border-right: 2px solid darkgrey;
+    width: 44%;
+}
+
+.sendit {
+    width: 54%;
+}
+
+/* msgs side */
+img {
+    width: 40px;
+    height: 40px;
+}
+
+.trash,
+.message {
+    display: inline-block;
+}
+
+.message {
+    width: 80%;
+}
+
+.trash {
+    margin-bottom: 10px;
+}
+
+.block {
+    margin: 5px;
+    border: 1px solid black;
+}
+
+
+/* send msgs side */
+.send input[type="submit"] {
+
+}
+
+.msgline td {
+    padding: 10px 0;
+}
+
+.sendit table {
+    width: 100%;
+}
+
+.msgbox {
+    resize: none;
+    width: 95%;
+}

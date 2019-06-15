@@ -1,0 +1,41 @@
+This file contains code sections from privatewall where I implemented the
+search bar task.
+
+FROM SERVER.PY
+@app.route("/usersearch")
+def search():
+    mysql = connectToMySQL("login")
+    query = "SELECT email FROM users WHERE email LIKE %%(email)s;"
+    data = {
+        "email" : request.args.get('email') + "%"
+    }
+    results = mysql.query_db(query, data)
+    return render_template("partials/suggests.html", users = results)
+
+
+FROM SCRIPT.JS
+$('#lookup').keyup(function(){
+    var data = $("#lookupemail").serialize()   // capture all the data in the form in the variable data
+    $.ajax({
+        method: "GET",   // we are using a post request here, but this could also be done with a get
+        url: "/usersearch",
+        data: data
+    })
+    .done(function(res){
+         $('#emaillook').html(res)  // manipulate the dom when the response comes back
+    })
+})
+
+
+FROM INDEX.HTML
+SEARCH USERS!
+<form method="GET" action="/usersearch" id="lookupemail">
+     <input type="text" name="email" id="lookup" autocomplete="off">
+     <div id="emaillook"></div>
+</form>
+
+
+FROM SUGGESTS.HTML (for insert into div #emaillook above)
+{% for user in users %}
+    <p>{{user['email']}}</p>
+{% endfor %}
